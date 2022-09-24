@@ -1,0 +1,34 @@
+<div class="container">
+    <button class="btn btn-primary" (click)="agregarCliente()">Agregar Cliente</button>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Saldo</th>
+            <th scope="col">Limite Fiado</th>
+            <th scope="col">Despacho</th>
+            <th scope="col">Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">        
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.telefono}}</td>
+            <td>{{cliente.saldo}}</td>
+            <td>{{cliente.limiteFiado}}</td>
+            <td>{{cliente.tipoDespacho?.nombre}}</td>
+            <td>
+                <button class="btn btn-warning" (click)="modificarCliente(cliente.id)">Modificar</button>
+                <app-cliente-baja [id]="cliente.id" (onEliminar)="cargarListado()"></app-cliente-baja>
+            </td>        
+          </tr>       
+        </tbody>
+      </table>
+</div>
+

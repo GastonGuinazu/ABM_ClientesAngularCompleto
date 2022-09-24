@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+/* 
+---------------------------------------
+ngOnInit(): void {
+   this.suscripcion.add(
+    this.posicionServicio.obtenerPosicion().subscribe({
+      next: (respuesta: Posicion[]) => {
+        this.posiciones = respuesta;
+        this.cargarJugador();
+      },
+      error: () => {
+        alert('error al obtener las categorias');
+      },
+    })
+  );
+  }  
+
+  guardar() {
+    this.suscripcion.add(
+      this.jugadorServicio.modificarCliente(this.jugador).subscribe({
+        next: () => {
+          this.route.navigate(['']);
+        },
+        error: () => {
+          alert('error al intentar guardar el articulo');
+        },
+      })
+    );
+  } 
+
+  private cargarJugador() {
+    this.suscripcion.add(
+      this.activatedRoute.params.subscribe({
+        next: (params) => {
+          const id = params['id'];
+          this.jugadorServicio.obtenerPorId(id).subscribe({
+            next: (respuesta: Jugador) => {
+              this.jugador = respuesta;
+            },
+            error: () => {
+              alert('error al obtener el articulo');
+            },
+          });
+        },
+      })
+    );
+  } */

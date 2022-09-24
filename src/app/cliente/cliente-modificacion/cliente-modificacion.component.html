@@ -1,0 +1,61 @@
+<form class="form-control" #formulario="ngForm">
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtNombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="txtNombre" name="nombre" [(ngModel)]="clientes.nombre"
+                    #nombre="ngModel" required [class.invalido]="nombre.invalid && nombre.touched"
+                    [class.valid]="nombre.valid && nombre.touched">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtTelefono" class="form-label">Telefono:</label>
+                <input type="text" class="form-control" id="txtTelefono" name="telefono" [(ngModel)]="clientes.telefono"
+                    #telefono="ngModel" required [class.invalido]="telefono.invalid && telefono.touched"
+                    [class.valid]="telefono.valid && telefono.touched">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="txtSaldo" class="form-label">Saldo:</label>
+                <input type="text" class="form-control" id="txtSaldo" name="telefono" [(ngModel)]="clientes.saldo"
+                    #saldo="ngModel" required [class.invalido]="saldo.invalid && saldo.touched"
+                    [class.valid]="saldo.valid && saldo.touched">
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="txtLimiteFiado" class="form-label">LimiteFiado:</label>
+                    <input type="text" class="form-control" id="txtLimiteFiado" name="limiteFiado" [(ngModel)]="clientes.limiteFiado"
+                        #limiteFiado="ngModel" required [class.invalido]="limiteFiado.invalid && limiteFiado.touched"
+                        [class.valid]="limiteFiado.valid && limiteFiado.touched">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="cboDespacho" class="form-label">Despacho:</label>
+                <select class="form-select" name="tipoDespachoId" [(ngModel)]="clientes.tipoDespachoId">
+                    <option *ngFor="let despacho of despachos" [ngValue]="despacho.id">
+                        {{ despacho.nombre }}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+            <button type="submit" class="btn btn-success" (click)="guardar()">Guardar</button>
+        </div>
+        <div class="col-3">
+            <button type="submit" class="btn btn-warning"(click)="cancelar()">Cancelar</button>
+        </div>
+    </div>   
+</form>
